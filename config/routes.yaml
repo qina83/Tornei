@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../src/GestioneTornei/Infrastructure/
+        namespace: App\GestioneTornei\Infrastructure
+    type: attribute

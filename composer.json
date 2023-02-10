@@ -9,12 +9,19 @@
         "php": ">=8.2.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.8",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.14",
+        "ramsey/uuid": "^4.7",
         "symfony/console": "6.2.*",
         "symfony/dotenv": "6.2.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.2.*",
+        "symfony/phpunit-bridge": "^6.2",
         "symfony/runtime": "6.2.*",
-        "symfony/yaml": "6.2.*"
+        "symfony/uid": "6.2.*",
+        "symfony/yaml": "6.2.*",
+        "webmozart/assert": "^1.11"
     },
     "config": {
         "allow-plugins": {
@@ -63,5 +70,9 @@
             "require": "6.2.*",
             "docker": true
         }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.14",
+        "phpunit/phpunit": "^9.5"
     }
 }

@@ -6,14 +6,13 @@ use App\GestioneTornei\Application\Command\AttivaTorneoCommand;
 use App\GestioneTornei\Application\Command\CreaNuovoTorneoCommand;
 use App\GestioneTornei\Application\Command\DisattivaTorneoCommand;
 use App\GestioneTornei\Application\GestioneTornei;
-use App\GestioneTornei\Application\Query\ListaTorneiNonEliminatiQuery;
+use App\GestioneTornei\Application\Query\TorneiNonEliminatiQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Webmozart\Assert\Assert;
-
 
 #[Route('/gestione_tornei')]
 class GestioneTorneiController extends AbstractController
@@ -60,7 +59,7 @@ class GestioneTorneiController extends AbstractController
     public function torneiNonEliminati(
         GestioneTornei $gestioneTornei,
     ): Response {
-        $query = new ListaTorneiNonEliminatiQuery();
+        $query = new TorneiNonEliminatiQuery();
         $tornei = $gestioneTornei->recuperaListaTorneiNonEliminati($query);
 
         return new JsonResponse($tornei->toArray());

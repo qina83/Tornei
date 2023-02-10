@@ -1,10 +1,13 @@
 <?php
 
-namespace App\GestioneTornei\Tests\Application;
+namespace App\GestioneTornei\Tests\Unit\Application;
 
 use App\Common\Application\EventBus;
+use App\GestioneTornei\Application\Command\AttivaTorneoCommand;
 use App\GestioneTornei\Application\Command\CreaNuovoTorneoCommand;
+use App\GestioneTornei\Application\Command\DisattivaTorneoCommand;
 use App\GestioneTornei\Application\GestioneTorneiService;
+use App\GestioneTornei\Domain\Torneo;
 use App\GestioneTornei\Domain\TorneoRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -54,5 +57,49 @@ class GestioneTorneiServiceTest extends TestCase
 
         $this->gestioneTorneiService
             ->creaUnNuovoTorneo($command);
+    }
+
+    /**
+     * @test
+     */
+    public function seAttivoUnTorneoDevoLanciareGliEventiDiDominio()
+    {
+        $torneo = Torneo::nuovo();
+
+        $this->torneoRepository
+            ->method('carica')
+            ->willReturn($torneo);
+
+        $this->eventBus
+            ->expects($this->once())
+            ->method('dispatchAll');
+
+        $command = new AttivaTorneoCommand(
+            $torneo->toArray()['id']
+        );
+
+        $this->gestioneTorneiService
+            ->attivaUnTorneo($command);
+    }
+
+    public function seDisattivoUnTorneoDevoLanciareGliEventiDiDominio()
+    {
+        $torneo = Torneo::nuovo();
+        $torneo->attiva();
+
+        $this->torneoRepository
+            ->method('carica')
+            ->willReturn($torneo);
+
+        $this->eventBus
+            ->expects($this->once())
+            ->method('dispatchAll');
+
+        $command = new DisattivaTorneoCommand(
+            $torneo->toArray()['id']
+        );
+
+        $this->gestioneTorneiService
+            ->disattivaUnTorneo($command);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\GestioneTornei\Domain\Event;
 
 use App\Common\Domain\Evento;
-use App\GestioneTornei\Domain\IdTorneo;
+use App\Common\Domain\GestioneTornei\IdTorneo;
 
 class EventoTorneoDisattivato implements Evento
 {

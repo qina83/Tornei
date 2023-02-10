@@ -2,7 +2,7 @@
 
 namespace App\GestioneTornei\Domain\ViewModel;
 
-use App\GestioneTornei\Domain\IdTorneo;
+use App\Common\Domain\GestioneTornei\IdTorneo;
 use App\GestioneTornei\Domain\StatoAttivazioneTorneo;
 
 final readonly class TorneoNonEliminato
@@ -17,7 +17,7 @@ final readonly class TorneoNonEliminato
     {
         return [
             'id' => $this->id->stringValue(),
-            'attivo' => $this->statoAttivazioneTorneo->eAttivato()
+            'attivo' => $this->statoAttivazioneTorneo->eAttivato(),
         ];
     }
 }

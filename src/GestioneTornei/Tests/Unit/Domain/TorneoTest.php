@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GestioneTornei\Tests\Domain;
+namespace App\GestioneTornei\Tests\Unit\Domain;
 
 use App\GestioneTornei\Domain\Event\EventoTorneoAttivato;
 use App\GestioneTornei\Domain\Event\EventoTorneoCreato;
@@ -34,7 +34,7 @@ class TorneoTest extends TestCase
         $guid = Uuid::uuid4()->toString();
         $state = [
             'id' => $guid,
-            'statoAttivazione' => StatoAttivazioneTorneo::disattivato()->stringValue()
+            'statoAttivazione' => StatoAttivazioneTorneo::disattivato()->stringValue(),
         ];
 
         $torneo = Torneo::fromArray($state);
@@ -56,7 +56,6 @@ class TorneoTest extends TestCase
         $this->assertTrue($eventi->get(0) instanceof EventoTorneoCreato);
         $this->assertEquals($eventi->get(0)->dati()['id'], $id);
     }
-
 
     /**
      * @test

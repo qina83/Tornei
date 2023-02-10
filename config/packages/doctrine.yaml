@@ -16,6 +16,17 @@ doctrine:
                 dir: '%kernel.project_dir%/src/GestioneTornei/Infrastructure/Entity'
                 prefix: 'App\GestioneTornei\Infrastructure\Entity'
                 alias: GestioneTornei
+            partite:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Partite/Infrastructure/Entity'
+                prefix: 'App\Partite\Infrastructure\Entity'
+                alias: Partite
+            gestione_utenti:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/GestioneUtenti/Infrastructure/Entity'
+                prefix: 'App\GestioneUtenti\Infrastructure\Entity'
+                alias: Utenti
+
 
 
 when@test:

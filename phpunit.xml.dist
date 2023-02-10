@@ -17,14 +17,27 @@
 
     <testsuites>
         <testsuite name="Project Test Suite">
+            <directory>src/Common/Tests</directory>
             <directory>src/GestioneTornei/Tests</directory>
+            <directory>src/GestioneUtenti/Tests</directory>
+            <directory>src/ApplicationTests</directory>
         </testsuite>
     </testsuites>
 
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">src/Common</directory>
+            <directory suffix=".php">src/GestioneTornei</directory>
+            <directory suffix=".php">src/GestioneUtenti</directory>
+            <directory suffix=".php">src/Partite</directory>
         </include>
+        <exclude>
+            <directory>src/Common/Tests</directory>
+            <directory>src/GestioneTornei/Tests</directory>
+            <directory>src/GestioneUtenti/Tests</directory>
+            <directory>src/Partite/Tests</directory>
+            <directory>src/ApplicationTests</directory>
+        </exclude>
     </coverage>
 
     <listeners>

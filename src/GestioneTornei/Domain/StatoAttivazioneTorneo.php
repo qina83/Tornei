@@ -2,19 +2,15 @@
 
 namespace App\GestioneTornei\Domain;
 
-
-
 class StatoAttivazioneTorneo
 {
     private const TORNEO_ATTIVATO = 'attivato';
     private const TORNEO_DISATTIVATO = 'disattivato';
 
-
     private function __construct(
         private string $stato
-    )
-    {
-        if (!in_array($stato, [self::TORNEO_ATTIVATO, self::TORNEO_DISATTIVATO])){
+    ) {
+        if (!in_array($stato, [self::TORNEO_ATTIVATO, self::TORNEO_DISATTIVATO])) {
             throw new \Exception('Stato non riconosciuto');
         }
     }
@@ -36,19 +32,16 @@ class StatoAttivazioneTorneo
 
     public function eAttivato(): bool
     {
-        return $this->stato === self::TORNEO_ATTIVATO;
+        return self::TORNEO_ATTIVATO === $this->stato;
     }
 
     public function eDisattivato(): bool
     {
-        return $this->stato === self::TORNEO_DISATTIVATO;
+        return self::TORNEO_DISATTIVATO === $this->stato;
     }
+
     public static function fromString(string $value): self
     {
         return new self($value);
     }
-
-
-
-
 }

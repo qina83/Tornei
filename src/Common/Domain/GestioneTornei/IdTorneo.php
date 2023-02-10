@@ -1,14 +1,14 @@
 <?php
 
-namespace App\GestioneTornei\Domain;
+namespace App\Common\Domain\GestioneTornei;
 
 use Ramsey\Uuid\Rfc4122\UuidV4;
 use Ramsey\Uuid\Uuid;
 
-class IdTorneo
+readonly class IdTorneo
 {
     public function __construct(
-        private readonly string $id
+        private string $id
     ) {
     }
 

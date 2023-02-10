@@ -8,18 +8,18 @@ use Doctrine\ORM\Mapping\PrePersist;
 
 #[ORM\Entity(repositoryClass: PostgreTorneoRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-class TorneoState
+#[ORM\Table(name: 'gestione_tornei_tornei_state')]
+class TorneoStateEntity
 {
     #[ORM\Id]
     #[ORM\Column(type: 'uuid', unique: true)]
     public string $id;
 
-    #[ORM\Column(options: ["default" => 'now()'])]
+    #[ORM\Column(options: ['default' => 'now()'])]
     public \DateTime $lastUpdate;
 
-    #[ORM\Column(options: ["default" => 'disattivato'])]
+    #[ORM\Column(options: ['default' => 'disattivato'])]
     public string $statoAttivazione;
-
 
     public function updateFromArray(array $data): void
     {
@@ -27,12 +27,11 @@ class TorneoState
         $this->statoAttivazione = $data['statoAttivazione'];
     }
 
-
     public function toArray(): array
     {
         return [
             'id' => $this->id,
-            'statoAttivazione' => $this->statoAttivazione
+            'statoAttivazione' => $this->statoAttivazione,
         ];
     }
 

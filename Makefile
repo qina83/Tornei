@@ -53,7 +53,7 @@ cc: c=c:c ## Clear the cache
 cc: sf
 
 test: ## Run test
-	$(PHP_CONT) sh -c "vendor/bin/phpunit"
+	$(PHP_CONT) sh -c "vendor/bin/phpunit --coverage-html ./coverage"
 
 cs-fix:
 	$(PHP_CONT) sh -c "PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --using-cache=no fix -v"

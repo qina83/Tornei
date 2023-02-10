@@ -1,5 +1,18 @@
-controllers:
+gestione_tornei:
     resource:
         path: ../src/GestioneTornei/Infrastructure/
         namespace: App\GestioneTornei\Infrastructure
+    type: attribute
+
+partite:
+    resource:
+        path: ../src/Partite/Infrastructure/
+        namespace: App\Partite\Infrastructure
+    type: attribute
+
+
+gestione_utenti:
+    resource:
+        path: ../src/GestioneUtenti/Infrastructure/
+        namespace: App\GestioneUtenti\Infrastructure
     type: attribute

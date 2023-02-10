@@ -3,6 +3,7 @@
 namespace App\GestioneTornei\Domain;
 
 use App\Common\Domain\Eventi;
+use App\Common\Domain\GestioneTornei\IdTorneo;
 use App\GestioneTornei\Domain\Event\EventoTorneoAttivato;
 use App\GestioneTornei\Domain\Event\EventoTorneoCreato;
 use App\GestioneTornei\Domain\Event\EventoTorneoDisattivato;
@@ -14,8 +15,7 @@ final class Torneo
     private function __construct(
         private IdTorneo $id,
         private StatoAttivazioneTorneo $statoAttivazioneTorneo
-    )
-    {
+    ) {
         $this->eventi = new Eventi();
     }
 
@@ -34,7 +34,7 @@ final class Torneo
 
     public function attiva()
     {
-        if ($this->statoAttivazioneTorneo->eDisattivato()){
+        if ($this->statoAttivazioneTorneo->eDisattivato()) {
             $this->statoAttivazioneTorneo = StatoAttivazioneTorneo::attivato();
             $evento = new EventoTorneoAttivato($this->id);
             $this->eventi->append($evento);
@@ -54,7 +54,7 @@ final class Torneo
     {
         return [
             'id' => $this->id->stringValue(),
-            'statoAttivazione' => $this->statoAttivazioneTorneo->stringValue()
+            'statoAttivazione' => $this->statoAttivazioneTorneo->stringValue(),
         ];
     }
 

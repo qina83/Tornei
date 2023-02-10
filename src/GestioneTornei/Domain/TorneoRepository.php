@@ -2,7 +2,8 @@
 
 namespace App\GestioneTornei\Domain;
 
-use App\GestioneTornei\Domain\ViewModel\ListaTorneiNonEliminati;
+use App\Common\Domain\GestioneTornei\IdTorneo;
+use App\GestioneTornei\Domain\ViewModel\TorneiNonEliminati;
 
 interface TorneoRepository
 {
@@ -10,5 +11,5 @@ interface TorneoRepository
 
     public function carica(IdTorneo $id): Torneo;
 
-    public function recuperaListaTorneiNonEliminati(): ListaTorneiNonEliminati;
+    public function recuperaListaTorneiNonEliminati(): TorneiNonEliminati;
 }

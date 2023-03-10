@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Common\Infrastructure;
+namespace App\Common\Infrastructure\Exception;
 
 use Symfony\Component\HttpFoundation\Response;
 

@@ -4,3 +4,5 @@ parameters:
     'TorneoNonTrovatoException': 400
     'UsernameGiaUsatoException': 400
     'GiocatoreNonTrovatoException' : 404
+    'CredenzialiErrateException' : 401
+    'UtenteNotFoundException' : 404

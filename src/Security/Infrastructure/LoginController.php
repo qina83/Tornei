@@ -2,6 +2,7 @@
 
 namespace App\Security\Infrastructure;
 
+use App\Security\Application\Security;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,14 +14,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class LoginController extends AbstractController
 {
     #[Route('/login', name: 'securiy_login', methods: ['POST'])]
-    public function login(Request $request): Response
-    {
+    public function login(
+        Request $request,
+        Security $security
+    ): Response {
         $credential = json_decode($request->getContent(), true);
-
-        $token = Uuid::uuid4();
+        $token = $security->login($credential['username'], $credential['password']);
 
         return new JsonResponse([
-            'token' => $token
+            'token' => $token,
         ]);
     }
 }

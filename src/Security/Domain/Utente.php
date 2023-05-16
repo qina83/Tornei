@@ -34,6 +34,11 @@ class Utente implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
+    public function setPassword(string $newPassword): void
+    {
+        $this->password = $newPassword;
+    }
+
     public function toArray(): array
     {
         return [

@@ -21,6 +21,7 @@ class GestioneTorneiController extends AbstractController
     public function crea(
         GestioneTornei $gestioneTornei,
     ): Response {
+
         $comando = new CreaNuovoTorneoCommand();
         $gestioneTornei->creaUnNuovoTorneo($comando);
 

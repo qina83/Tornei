@@ -16,3 +16,9 @@ gestione_utenti:
         path: ../src/GestioneUtenti/Infrastructure/
         namespace: App\GestioneUtenti\Infrastructure
     type: attribute
+
+security:
+    resource:
+        path: ../src/Security/Infrastructure
+        namespace: App\Security\Infrastructure
+    type: attribute

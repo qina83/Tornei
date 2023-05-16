@@ -1,5 +1,6 @@
 parameters:
   exception_status_code_map:
+    'CustomUserMessageAuthenticationException': 401
     'TorneoNonTrovatoException': 400
     'UsernameGiaUsatoException': 400
     'GiocatoreNonTrovatoException' : 404

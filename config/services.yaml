@@ -32,6 +32,7 @@ services:
 
     App\Partite\Application\Listener\EventiTorneo: ~
     App\Partite\Application\Listener\EventiGiocatori: ~
+    App\Security\Application\Listener\EventiGiocatori: ~
 #
     App\Common\Infrastructure\SimpleEventBus:
         arguments:
@@ -42,5 +43,7 @@ services:
                     - '@App\Partite\Application\Listener\EventiTorneo'
                 GiocatoreCreato:
                     - '@App\Partite\Application\Listener\EventiGiocatori'
+                    - '@App\Security\Application\Listener\EventiGiocatori'
                 GiocatoreDisattivato:
                     - '@App\Partite\Application\Listener\EventiGiocatori'
+                    - '@App\Security\Application\Listener\EventiGiocatori'

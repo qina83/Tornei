@@ -26,6 +26,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/GestioneUtenti/Infrastructure/Entity'
                 prefix: 'App\GestioneUtenti\Infrastructure\Entity'
                 alias: Utenti
+            security:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Security/Infrastructure/Entity'
+                prefix: 'App\Security\Infrastructure\Entity'
+                alias: Security
 
 
 

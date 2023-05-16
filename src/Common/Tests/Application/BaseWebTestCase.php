@@ -70,6 +70,10 @@ class BaseWebTestCase extends WebTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }
 
+    protected function checkResponse401(): void
+    {
+        $this->assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);
+    }
     protected function checkResponse200(): void
     {
         $this->assertResponseIsSuccessful();
